@@ -36,7 +36,7 @@
     <div class="msgs">
       <Msg v-for="v in msgList" :key="v.id" :type="v.type" :text="v.text" @close="removeMsg(v.id)"/>
     </div>
-    <Base64Tooltip/>
+    <!-- <Base64Tooltip/> -->
     <div class="setting-modal modal" v-if="showConfig">
       <div class="mask" @click="showConfig = !showConfig"></div>
       <div class="wrapper">
