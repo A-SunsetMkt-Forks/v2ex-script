@@ -105,7 +105,7 @@ async function submit() {
   // emits('close')
   // return console.log('item', item)
 
-  let url = `${window.baseUrl}/t/${post.value.id}`
+  let url = `/t/${post.value.id}`
   $.post(url, {content: content.value, once: post.value.once}).then(
       res => {
         // console.log('回复', res)

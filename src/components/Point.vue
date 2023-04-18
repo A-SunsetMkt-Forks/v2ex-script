@@ -58,7 +58,7 @@ export default {
       }
       this.$emit('addThank')
       //https://www.v2ex.com/thank/topic/886147?once=38719
-      let url = `${window.baseUrl}/thank/${this.apiUrl}?once=${this.post.once}`
+      let url = `/thank/${this.apiUrl}?once=${this.post.once}`
       $.post(url).then(res => {
         console.log('感谢', res)
         if (!res.success) {

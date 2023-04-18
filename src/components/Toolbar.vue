@@ -72,7 +72,7 @@ export default {
     tweet() {
       if (!this.checkIsLogin()) return
       let username = window.user.username
-      let url = `https://twitter.com/share?url=${window.baseUrl}/t/${this.post.id}?r=${username}&amp;related=v2ex&amp;hashtags=apple&amp;text=${this.post.title}`
+      let url = `https://twitter.com/share?url=/t/${this.post.id}?r=${username}&amp;related=v2ex&amp;hashtags=apple&amp;text=${this.post.title}`
       window.win().open(url, '_blank', 'width=550,height=370');
     },
     report() {
@@ -80,12 +80,12 @@ export default {
       if (!this.isLogin) return
       if (this.post.isReport) return
       let username = window.user.username
-      let url = `https://twitter.com/share?url=${window.baseUrl}/t/${this.post.id}?r=${username}&amp;related=v2ex&amp;hashtags=apple&amp;text=${this.post.title}`
+      let url = `https://twitter.com/share?url=/t/${this.post.id}?r=${username}&amp;related=v2ex&amp;hashtags=apple&amp;text=${this.post.title}`
       window.win().open(url, '_blank', 'width=550,height=370');
     },
     async toggleIgnore() {
       if (!this.checkIsLogin()) return
-      let url = `${window.baseUrl}/${this.post.isIgnore ? 'unignore' : 'ignore'}/topic/${this.post.id}?once=${this.post.once}`
+      let url = `/${this.post.isIgnore ? 'unignore' : 'ignore'}/topic/${this.post.id}?once=${this.post.once}`
       //如果是帖子详情页，那么直接跳转到首页
       if (this.pageType === 'post') {
         this.loading2 = true
@@ -123,7 +123,7 @@ export default {
       if (!this.checkIsLogin()) return
       // return eventBus.emit('merge', 'isFavorite')
       this.loading = true
-      let url = `${window.baseUrl}/${this.post.isFavorite ? 'unfavorite' : 'favorite'}/topic/${this.post.id}?once=${this.post.once}`
+      let url = `/${this.post.isFavorite ? 'unfavorite' : 'favorite'}/topic/${this.post.id}?once=${this.post.once}`
       let apiRes = await window.win().fetch(url)
       this.loading = false
       if (apiRes.redirected) {
